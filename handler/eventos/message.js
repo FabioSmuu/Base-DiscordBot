@@ -7,19 +7,19 @@ module.exports = async (client, msg) => {
     let cmd = client.commands.get(args.shift().toLowerCase())
 
     if (
-        !cmd
-        || msg.author.bot
-        || msg.channel.type == 'dm'
-        && msg.author.id != client.user.id
-        || !msg.content.startsWith(config.Prefixo)
+	!cmd
+	|| msg.author.bot
+	|| msg.channel.type == 'dm'
+	&& msg.author.id != client.user.id
+	|| !msg.content.startsWith(config.Prefixo)
     )
 	return
 
     if (
-		msg.author.id == msg.channel.guild.ownerID
-		|| (cmd.info.users == 0 && cmd.info.roles == 0)
-		|| cmd.info.roles.some(r => msg.member.roles.some(b => b.id == config.roles[r]))
-		|| cmd.info.users.some(user => msg.author.id === config.users[user])
+	msg.author.id == msg.channel.guild.ownerID
+	|| (cmd.info.users == 0 && cmd.info.roles == 0)
+	|| cmd.info.roles.some(r => msg.member.roles.some(b => b.id == config.roles[r]))
+	|| cmd.info.users.some(user => msg.author.id === config.users[user])
     )
 	return msg.delete(1), cmd.comando(client, msg, args)
 }
