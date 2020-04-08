@@ -5,7 +5,7 @@
 ### Informaões:
 - Possui uma [.env](/handler/core/env.js) própria
 - Leitura de configuraçoes em [config.json](/handler/config.json)
-- Listagem e criação de [comandos](/handler/comandos/exemplo/comando.js) de forma independente.
+- Listagem e criação de [comandos](/handler/comandos/Exemplo/comando.js) de forma independente.
 - Listagem de [eventos](/handler/eventos/ready.js), tambem independentes.
 
 
@@ -15,7 +15,7 @@
 | discord.js | npm i discord.js@11.5.1
 
 ### Como criar um comando:
-Seguindo o exemplo do arquivo [comando.js](/handler/comandos/exemplo/comando.js) podemos ver como um comando é criado.
+Seguindo o exemplo do arquivo [comando.js](/handler/comandos/Exemplo/comando.js) podemos ver como um comando é criado.
 
 ```js
 module.exports.info = {
