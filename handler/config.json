@@ -1,0 +1,18 @@
+{
+	"envfake" : true,
+	
+    "Prefixo" : "!",
+    "Status" : "Smuu-Bot",
+	
+    "CanalCaptcha": "627643668123353088",
+
+    "roles" : {
+        "visitante" : "697288279556489287",
+        "perm-bot" : "697288361907453963",
+        "perm-menssage" : "697288401346363452"
+    },
+	
+	"users" : {
+		"Fabio" : "431692094931861504"
+	}
+}
