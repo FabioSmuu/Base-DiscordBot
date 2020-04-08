@@ -1,4 +1,3 @@
-  
 module.exports.info = {
     cmd: ['exemplo'/*, 'Insira valores para usar como comando.'*/],
     roles: [/*'Coloque aqui o nome das roles configurada na config.json', 'perm-bot', 'exemplo1', 'exemplo2'*/],
