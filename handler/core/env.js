@@ -11,13 +11,12 @@ file.toString().split(/\n|\r|\r\n/).forEach(async (line) => {
 	if (valor != null) {
 	  let val = (valor[2] || ''),
 	  end = val.length - 1,
-	  isDoubleQuoted = val[0] === '"' && val[end] === '"',
-	  isSingleQuoted = val[0] === "'" && val[end] === "'"
+	  a = b = val[0] === '"' && val[end] === '"'
 
-	  if (isSingleQuoted || isDoubleQuoted) {
+	  if (a || b) {
 		val = val.substring(1, end)
 
-		if (isDoubleQuoted) val = val.replace(/\\n/g, '\n')
+		if (b) val = val.replace(/\\n/g, '\n')
 		
 	  } else val = val.trim()
 	  
