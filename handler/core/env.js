@@ -10,13 +10,11 @@ file.toString().split(/\n|\r|\r\n/).forEach(async (line) => {
 	let valor = line.match(/^\s*([\w.-]+)\s*=\s*(.*)?\s*$/)
 	if (valor != null) {
 	  let val = (valor[2] || ''),
-	  end = val.length - 1,
-	  a = b = val[0] === '"' && val[end] === '"'
+	  end = val.length - 1
 
-	  if (a || b) {
+	  if (val[0] === '"' && val[end] === '"') {
 		val = val.substring(1, end)
-
-		if (b) val = val.replace(/\\n/g, '\n')
+		val = val.replace(/\\n/g, '\n')
 		
 	  } else val = val.trim()
 	  
