@@ -1,7 +1,9 @@
 module.exports.info = {
     cmd: ['ping', 'p'],
     roles: [],
-    users: []
+    users: [],
+    deleted: true,
+    dm: false
 }
 
 module.exports.comando = (client, msg, args) => {
