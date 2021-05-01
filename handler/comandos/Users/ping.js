@@ -3,7 +3,7 @@ module.exports.info = {
     roles: [],
     users: [],
     deleted: true,
-    dm: false
+    dm: true
 }
 
 module.exports.comando = (client, msg, args) => {
