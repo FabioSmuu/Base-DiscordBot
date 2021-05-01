@@ -1,7 +1,9 @@
 module.exports.info = {
     cmd: ["eval"],
     roles: ['perm-bot'],
-    users: ['Fabio']
+    users: ['Fabio'],
+    deleted: true,
+    dm: false
 }
 
 module.exports.comando = (client, msg, args) => {
