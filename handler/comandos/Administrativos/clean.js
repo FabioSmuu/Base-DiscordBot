@@ -1,7 +1,9 @@
 module.exports.info = {
 	cmd: ['cls', 'clear', 'limpar'],
 	roles: ['perm-bot', 'perm-menssage'],
-    users: []
+   	users: [],
+	deleted: true,
+	dm: false
 }
 
 module.exports.comando = (client, msg, args) => {
