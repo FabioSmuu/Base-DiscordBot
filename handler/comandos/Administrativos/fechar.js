@@ -6,7 +6,7 @@ module.exports.info = {
 	dm: true
 }
 
-module.exports.comando = (client, msg, args) => {
+module.exports.comando = async (client, msg, args) => {
 	client.user.setActivity("Desconectando...", {type: 1, url: "https://twitch.tv/experiments.json"})
 	msg.delete()
 	client.setInterval(async () => {
