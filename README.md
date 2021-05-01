@@ -21,7 +21,9 @@ Seguindo o exemplo do arquivo [comando.js](/handler/comandos/Exemplo/comando.js)
 module.exports.info = {
     cmd: ['exemplo', 'e'], //Irá funcionar usando prefixo + nome  (!exemplo ou !e)
     roles: ['perm-bot', 'exemplo1', 'exemplo2'],
-    users: ['Fabio', 'Smuu']
+    users: ['Fabio', 'Smuu'],
+    deleted: true,
+    dm: false
 }
 
 module.exports.comando = (client, msg, args) => {
