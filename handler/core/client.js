@@ -1,7 +1,7 @@
-const fs = require("fs")
-, util = require("util")
+const fs = require('fs')
+, util = require('util')
 , path = require('path')
-, Discord = {Client, Collection} = require("discord.js")
+, Discord = {Client, Collection} = require('discord.js')
 , client = new Client()
 
 client.commands = new Collection()
