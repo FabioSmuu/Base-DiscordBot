@@ -6,7 +6,7 @@ module.exports.info = {
 	dm: false
 }
 
-module.exports.comando = (client, msg, args) => {
+module.exports.comando = async (client, msg, args) => {
 	msg.channel.bulkDelete(100).then(() => {
 		msg.channel.send('As mensagens foram deletadas!').then(m => m.delete(3000))
 	}).catch(() => {
