@@ -1,14 +1,14 @@
 module.exports.info = {
-    cmd: ["eval"],
-    roles: ['perm-bot'],
-    users: ['Fabio'],
-    deleted: true,
-    dm: true
+	cmd: ["eval"],
+	roles: ['perm-bot'],
+	users: ['Fabio'],
+	deleted: true,
+	dm: true
 }
 
 module.exports.comando = (client, msg, args) => {
 	let code = '```'
-	
+
 	try {
 		msg.channel.send(`Eval: ${code}js\n ${args.join(' ') + code}`)
 	}
