@@ -6,7 +6,7 @@ module.exports.info = {
 	dm: true
 }
 
-module.exports.comando = (client, msg, args) => {
+module.exports.comando = async (client, msg, args) => {
 	let code = '```'
 
 	try {
