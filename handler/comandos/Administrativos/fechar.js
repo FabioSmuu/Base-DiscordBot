@@ -1,7 +1,9 @@
 module.exports.info = {
     cmd: ['fechar', 'close', 'shutdown', 'stop'],
     roles: ['perm-bot'],
-    users: ['Fabio']
+    users: ['Fabio'],
+    deleted: true,
+    dm: false
 }
 
 module.exports.comando = (client, msg, args) => {
