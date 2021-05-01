@@ -6,6 +6,6 @@ module.exports.info = {
     dm: true
 }
 
-module.exports.comando = (client, msg, args) => {
+module.exports.comando = async (client, msg, args) => {
     msg.channel.send(`**Pong!** ${Math.round(client.ping)}ms`).then(m => m.delete(3000))
 }
