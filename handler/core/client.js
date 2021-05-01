@@ -1,33 +1,34 @@
-const fs = require("fs"),
-util = require("util"),
-path = require('path'),
-Discord = {Client, Collection} = require("discord.js"),
-client = new Client()
+const fs = require("fs")
+, util = require("util")
+, path = require('path')
+, Discord = {Client, Collection} = require("discord.js")
+, client = new Client()
+
+client.commands = new Collection()
 
 ////cmd
 function readDir(dir){
 	let files = {}
 
 	fs.readdirSync(dir)
-	.sort((a, b) => fs.statSync(dir + '/' + a).mtime.getTime() - fs.statSync(dir + '/' + b).mtime.getTime())
-	.forEach(file => {
-		if( fs.lstatSync(dir+ '/' +file).isFile() ){
+	.sort((a, b) => fs.statSync(path.resolve(dir, a)).mtime.getTime() - fs.statSync(path.resolve(dir, b)).mtime.getTime())
+	.map(file => {
+		if (fs.lstatSync(path.resolve(dir, file)).isFile()) {
 			if (file.endsWith('.js')) {
-				console.log('- ' + file + ' OK!')
-				let comandos = require(dir + '/'+file)
+				console.log(`- ${file} OK!`)
+				let comandos = require(path.resolve(dir, file))
 				comandos.info.cmd.map(e => client.commands.set(e, comandos))
 			}
 		}
-		else if( fs.lstatSync(dir+ '/' +file).isDirectory()) files[file] = readDir(dir+ '/' +file)
+		else if (fs.lstatSync(path.resolve(dir, file)).isDirectory()) files[file] = readDir(path.resolve(dir, file))
 	})
 }
 
-client.commands = new Collection()
-readDir(__dirname + '/../comandos/')
+readDir(path.resolve(__dirname, '../comandos/'))
 ////cmd
 
 ////evt
-let files = fs.readdirSync(__dirname + '/../eventos/')
+let files = fs.readdirSync(path.resolve(__dirname, '../eventos/'))
 files.map(f => {
 	if (f.endsWith('.js')) client.on(f.slice(0, -3), require('../eventos/'+f).bind(null, client))
 })
