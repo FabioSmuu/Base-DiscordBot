@@ -26,7 +26,7 @@ module.exports.info = {
     dm: false
 }
 
-module.exports.comando = (client, msg, args) => {
+module.exports.comando = async (client, msg, args) => {
     //Aqui é onde ocorre a magica, pois, tudo o que for criado neste bloco será executado ao chamar o comando.
 }
 ```
