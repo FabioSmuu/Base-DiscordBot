@@ -7,10 +7,10 @@ Array.prototype.unique = function(){
 }
 
 String.prototype.formal = function(){
-	var palavra = this.toLowerCase().split(' ')
+	let palavra = this.toLowerCase().split(' ')
 	
 	palavra.map((letras, i) => {
-		let inicial = letras[0]
+		const inicial = letras[0]
 		letras = (letras.length > 3) ? inicial.toUpperCase()+letras.slice(1) : inicial+letras.slice(1)
 		palavra[i] = letras
 		palavra[0][0] = palavra[0][0].toUpperCase()
