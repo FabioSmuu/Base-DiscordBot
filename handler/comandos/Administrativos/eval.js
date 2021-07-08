@@ -7,7 +7,7 @@ module.exports.info = {
 }
 
 module.exports.comando = async (client, msg, args) => {
-	let code = '```'
+	const code = '```'
 
 	try {
 		msg.channel.send(`Eval: ${code}js\n ${args.join(' ') + code}`)
