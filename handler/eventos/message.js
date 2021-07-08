@@ -3,8 +3,8 @@ module.exports = async (client, msg) => {
 		msg.delete().then(msg.channel.send(`${msg.author} você não pode enviar links de outros servidores aqui!`).then(msg => msg.delete(5000)))
 	}
 
-	let args = msg.content.slice(config.Prefixo.length).trim().split(/ +/g)
-	let cmd = client.commands.get(args.shift().toLowerCase())
+	const args = msg.content.slice(config.Prefixo.length).trim().split(/ +/g)
+	const cmd = client.commands.get(args.shift().toLowerCase())
 
 	if (
 		!cmd
