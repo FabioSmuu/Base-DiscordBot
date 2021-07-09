@@ -1,20 +1,31 @@
 if (!config.envfake) return
 
-const fs = require('fs')
-, path = require('path')
-, env = {}
-, file = fs.readFileSync(path.resolve(process.cwd(), '.env'), 'utf8')
+const fs = require('fs'), path = require('path')
 
-file.toString().split(/\n|\r|\r\n/).map(async (linha) => {
-	const valor = linha.match(/^\s*([\w.-]+)\s*=\s*(.*)?\s*$/)
-	if (valor != null) {
-		let val = valor[2] || '',
-		end = val.length - 1
-		env[valor[1]] = (val[0] === '"' && val[end] === '"') ? val.substring(1, end).replace(/\\n/g, '\n') : val.trim()
+const removeAspas = string => {
+	return (string[0] === '"' && string[string.length-1] === '"')
+	? string.substring(1, string.length-1).replace(/\\n/g, '\n')
+	: string.trim()
+}
+
+const registrarEnv = (chave, valor) => {
+	if (!Object.prototype.hasOwnProperty.call(process.env, chave)) {
+		process.env[chave] = valor
+		console.log(`[ENV] (${chave}) Carregada!`)
+	} else
+		console.log(`[ENV] Erro ao registrar (${chave}) Acesso negado.`)
+}
+
+const formatarLinha = linha => {
+	const estrutura = linha.match(/^\s*([\w.-]+)\s*=\s*(.*)?\s*$/)
+
+	if (estrutura != null) {
+		const [str, chave, valor] = estrutura
+		const retorno = removeAspas(valor)
+
+		if (retorno) registrarEnv(chave, retorno)
 	}
-})
+}
 
-Object.keys(env).map(async (key) => {
-	const retorno = (!Object.prototype.hasOwnProperty.call(process.env, key)) ? process.env[key] = env[key] : false
-	if (!retorno) console.log('[ENV] Erro na importação de valores.')
-})
+const file = fs.readFileSync(path.resolve(process.cwd(), '.env'), 'utf8')
+file.toString().split(/\n|\r|\r\n/).forEach(formatarLinha)
