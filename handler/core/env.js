@@ -5,7 +5,7 @@ const fs = require('fs'), path = require('path')
 const filterLine = string => string.replace(/['"](\w*)['"]/g, '$1').trim().replace(/\\n/g, '\n')
 
 const registerKey = (key, value) => {
-	if (Object.prototype.hasOwnProperty.call(process.env, key))
+	if ((process.env || {}).hasOwnProperty(key))
 		console.log(`[ENV] Erro ao registrar (${key}) Acesso negado.`)
 	else {
 		process.env[key] = filterLine(value)
