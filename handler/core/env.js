@@ -15,7 +15,7 @@ const registerKey = (key, value) => {
 
 const fileToEnv = line => {
 	const newline = line.match(/^\s*([\w.-]+)\s*=\s*(.*)?\s*$/)
-	const [undefined, key, value] = newline || []
+	const [, key, value] = newline || []
 
 	if (newline) registerKey(key, value)
 }
